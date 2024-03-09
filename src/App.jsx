@@ -1,6 +1,7 @@
 import { CORE_CONCEPTS } from './data';
 import CoreConcept from './components/CoreConcepts.jsx';
 import { Header } from './components/Header.jsx';
+import TabButton from './components/TabButton.jsx';
 
 // function CoreConcepts() {
 //   let size = {CORE_CONCEPTS}.length;
@@ -33,8 +34,14 @@ function App() {
           </ul>
         </section>
         <h2>Time to get started!</h2>
-        <section id="example">
+        <section id="examples">
           <h2>Examples</h2>
+          <menu>
+            <TabButton>Components</TabButton>
+            <TabButton>JSX</TabButton>
+            <TabButton>Props</TabButton>
+            <TabButton>States</TabButton>
+          </menu>
         </section>
       </main>
     </div>
