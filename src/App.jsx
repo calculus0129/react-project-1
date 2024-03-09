@@ -17,15 +17,11 @@ import TabButton from './components/TabButton.jsx';
 // }
 
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState({
-    title: "Please Click a Button!",
-    description: "",
-    code: "",
-  });
+  const [ selectedTopic, setSelectedTopic ] = useState('components');
 
   function onClickHere(key) {
     // string => 'components', 'jsx', ...
-    setSelectedTopic(EXAMPLES[key]); // request to updata a value.
+    setSelectedTopic(key); // request to updata a value.
     // console.log(selectedTopic); // previous value before update.
   }
 
@@ -57,10 +53,10 @@ function App() {
             <TabButton onSelect={()=>onClickHere('state')}>States</TabButton>
           </menu>
           <div id="tab-content">
-            <h3>{selectedTopic.title}</h3>
-            <p>{selectedTopic.description}</p>
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
             <pre><code>
-              {selectedTopic.code}
+              {EXAMPLES[selectedTopic].code}
               </code></pre>
           </div>
         </section>
