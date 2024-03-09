@@ -15,6 +15,14 @@ import TabButton from './components/TabButton.jsx';
 // }
 
 function App() {
+  let tabContent = "Please Click a Button!";
+
+  function onClickHere(string='I CLICKED!') {
+    // string => 'components', 'jsx', ...
+    tabContent=string;
+    console.log(tabContent);
+  }
+
   return (
     <div>
       <Header />
@@ -37,11 +45,12 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>States</TabButton>
+            <TabButton onSelect={()=>onClickHere('components')}>Components</TabButton>
+            <TabButton onSelect={()=>onClickHere('jsx')}>JSX</TabButton>
+            <TabButton onSelect={()=>onClickHere('props')}>Props</TabButton>
+            <TabButton onSelect={()=>onClickHere('states')}>States</TabButton>
           </menu>
+          {/* {tabContent} */}
         </section>
       </main>
     </div>
