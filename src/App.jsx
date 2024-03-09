@@ -17,7 +17,7 @@ import TabButton from './components/TabButton.jsx';
 // }
 
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState();
+  const [selectedTopic, setSelectedTopic] = useState();
 
   function onClickHere(key) {
     // string => 'components', 'jsx', ...
@@ -26,12 +26,12 @@ function App() {
   }
 
   const tabContent = (selectedTopic ? <div id="tab-content">
-  <h3>{EXAMPLES[selectedTopic].title}</h3>
-  <p>{EXAMPLES[selectedTopic].description}</p>
-  <pre><code>
-    {EXAMPLES[selectedTopic].code}
+    <h3>{EXAMPLES[selectedTopic].title}</h3>
+    <p>{EXAMPLES[selectedTopic].description}</p>
+    <pre><code>
+      {EXAMPLES[selectedTopic].code}
     </code></pre>
-</div> : <p>Please Select a Topic!</p>);
+  </div> : <p>Please Select a Topic!</p>);
 
   return (
     <div>
@@ -55,10 +55,18 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={()=>onClickHere('components')}>Components</TabButton>
-            <TabButton onSelect={()=>onClickHere('jsx')}>JSX</TabButton>
-            <TabButton onSelect={()=>onClickHere('props')}>Props</TabButton>
-            <TabButton onSelect={()=>onClickHere('state')}>States</TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'components'}
+              onSelect={() => onClickHere('components')}>Components</TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'jsx'}
+              onSelect={() => onClickHere('jsx')}>JSX</TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'props'}
+              onSelect={() => onClickHere('props')}>Props</TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'state'}
+              onSelect={() => onClickHere('state')}>States</TabButton>
           </menu>
           {tabContent}
         </section>
