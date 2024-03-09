@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { CORE_CONCEPTS } from './data';
 import CoreConcept from './components/CoreConcepts.jsx';
 import { Header } from './components/Header.jsx';
@@ -15,12 +17,12 @@ import TabButton from './components/TabButton.jsx';
 // }
 
 function App() {
-  let tabContent = "Please Click a Button!";
+  const [ selectedTopic, setSelectedTopic ] = useState("Please Click a Button!");
 
   function onClickHere(string='I CLICKED!') {
     // string => 'components', 'jsx', ...
-    tabContent=string;
-    console.log(tabContent);
+    setSelectedTopic(string); // request to updata a value.
+    // console.log(selectedTopic); // previous value before update.
   }
 
   return (
@@ -50,7 +52,7 @@ function App() {
             <TabButton onSelect={()=>onClickHere('props')}>Props</TabButton>
             <TabButton onSelect={()=>onClickHere('states')}>States</TabButton>
           </menu>
-          {/* {tabContent} */}
+          {selectedTopic}
         </section>
       </main>
     </div>
