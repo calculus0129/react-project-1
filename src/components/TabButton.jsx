@@ -1,4 +1,4 @@
 // onSelect is a pointer.
-export default function TabButton({children, onSelect, isSelected=false}) {
-    return <li><button className={isSelected?"active":undefined} onClick={onSelect}>{children}</button></li>;
+export default function TabButton({children, isSelected=false, ...props}) {
+    return <li><button className={isSelected?"active":undefined} {...props}>{children}</button></li>;
 }
