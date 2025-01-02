@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./Header.module.css";
+import "./Header.css";
 
 import reactImg from "@/public/assets/react-core-concepts.png";
 
@@ -16,11 +16,10 @@ const Header: React.FC<{ desc: string }> = ({ desc }) => {
             priority
         /> */}
       <Image
-        className={styles.logo}
         src={reactImg}
         alt="Stylized atom"
-        width={249}
-        height={249}
+        width={499}
+        height={499}
         priority
       />
       <h1>React Essentials</h1>
