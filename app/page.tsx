@@ -1,8 +1,12 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Header from "@/components/Header";
+import CoreConcept from "@/components/CoreConcept";
+import { CORE_CONCEPTS } from "@/app/data";
 
 const reactDescriptions = ["Advanced", "Basic", "Core", "Fundamental"];
+
+import componentsImg from "@/public/assets/components.png";
 
 export default function Home() {
   const idx = Math.floor(Math.random() * reactDescriptions.length);
@@ -11,6 +15,27 @@ export default function Home() {
     <div className={styles.page}>
       <Header desc={reactDescriptions[idx]} />
       <main className={styles.main}>
+        <section id="core-concepts">
+          <h2>Core Concepts</h2>
+          <ul>
+            <CoreConcept
+              key={2}
+              title="Components"
+              desc="Reusable building blocks for your React app."
+              img={componentsImg}
+            />
+            <CoreConcept
+              key={3}
+              title="Props"
+              desc="custom attributes that can be set on components."
+              img="/assets/config.png"
+            />
+            {CORE_CONCEPTS.map((concept, idx: number) => {
+              return <CoreConcept key={idx} {...concept} />;
+            })}
+          </ul>
+        </section>
+
         <Image
           className={styles.logo}
           src="/next.svg"
