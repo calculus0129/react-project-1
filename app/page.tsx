@@ -2,14 +2,14 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Header from "@/components/Header";
 
-const reactDescriptions = ['Advanced', 'Basic', 'Core', 'Fundamental'];
+const reactDescriptions = ["Advanced", "Basic", "Core", "Fundamental"];
 
 export default function Home() {
   const idx = Math.floor(Math.random() * reactDescriptions.length);
 
   return (
     <div className={styles.page}>
-      <Header desc={reactDescriptions[idx]}/>
+      <Header desc={reactDescriptions[idx]} />
       <main className={styles.main}>
         <Image
           className={styles.logo}
