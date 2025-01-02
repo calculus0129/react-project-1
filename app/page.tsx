@@ -1,20 +1,38 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
 import Header from "@/components/Header";
 import CoreConcept from "@/components/CoreConcept";
-import { CORE_CONCEPTS } from "@/app/data";
+import { CORE_CONCEPTS, EXAMPLES } from "@/app/data";
 import TabButton from "@/components/TabButton";
+import TabContent from "@/components/TabContent";
+import { useEffect, useState } from "react";
 
 const reactDescriptions = ["Advanced", "Basic", "Core", "Fundamental"];
 
 import componentsImg from "@/public/assets/components.png";
 
 export default function Home() {
-  const idx = Math.floor(Math.random() * reactDescriptions.length);
+  const [description, setDescription] = useState(reactDescriptions[0]);
+  const [tab, setTab] = useState("components");
+
+  useEffect(() => {
+    // Generate a random description after the component is mounted
+    const idx = Math.floor(Math.random() * reactDescriptions.length);
+    setDescription(reactDescriptions[idx]);
+  }, []);
+
+  // Closure
+  // input: string s.
+  // output: a closure () => void that sets the tab to s.
+  const handleSelect = (s: string) => () => {
+    setTab(() => s);
+  };
 
   return (
     <div className={styles.page}>
-      <Header desc={reactDescriptions[idx]} />
+      <Header desc={description} />
       <main className={styles.main}>
         <section id="core-concepts">
           <h2>Core Concepts</h2>
@@ -39,11 +57,15 @@ export default function Home() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            {Object.keys(EXAMPLES).map((example: string, idx: number) => {
+              return (
+                <TabButton key={idx} onSelect={handleSelect(example)}>
+                  {example}
+                </TabButton>
+              );
+            })}
           </menu>
+          <TabContent {...EXAMPLES[tab]} />
         </section>
         <section id="deployment">
           <Image
