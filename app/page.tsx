@@ -1,24 +1,15 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Header from "@/components/Header";
+
+const reactDescriptions = ['Advanced', 'Basic', 'Core', 'Fundamental'];
 
 export default function Home() {
+  const idx = Math.floor(Math.random() * reactDescriptions.length);
+
   return (
     <div className={styles.page}>
-      <header>
-        <Image
-          className={styles.logo}
-          src="/assets/react-core-concepts.png"
-          alt="Stylized atom"
-          width={249}
-          height={249}
-          priority
-        />
-        <h1>React Essentials</h1>
-        <p>
-          Advanced React concepts you will need for almost any app you are
-          going to build!
-        </p>
-      </header>
+      <Header desc={reactDescriptions[idx]}/>
       <main className={styles.main}>
         <Image
           className={styles.logo}
