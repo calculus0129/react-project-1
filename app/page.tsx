@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Header from "@/components/Header";
 import CoreConcept from "@/components/CoreConcept";
 import { CORE_CONCEPTS } from "@/app/data";
+import TabButton from "@/components/TabButton";
 
 const reactDescriptions = ["Advanced", "Basic", "Core", "Fundamental"];
 
@@ -37,7 +38,12 @@ export default function Home() {
         </section>
         <section id="examples">
           <h2>Examples</h2>
-          <menu>{/* Todo */}</menu>
+          <menu>
+            <TabButton>Components</TabButton>
+            <TabButton>JSX</TabButton>
+            <TabButton>Props</TabButton>
+            <TabButton>State</TabButton>
+          </menu>
         </section>
         <section id="deployment">
           <Image
