@@ -4,6 +4,21 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.page}>
+      <header>
+        <Image
+          className={styles.logo}
+          src="/assets/react-core-concepts.png"
+          alt="Stylized atom"
+          width={249}
+          height={249}
+          priority
+        />
+        <h1>React Essentials</h1>
+        <p>
+          Advanced React concepts you will need for almost any app you are
+          going to build!
+        </p>
+      </header>
       <main className={styles.main}>
         <Image
           className={styles.logo}
