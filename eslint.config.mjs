@@ -16,9 +16,11 @@ const eslintConfig = [
     "plugin:prettier/recommended", // Integrates Prettier with ESLint
   ),
   {
+    // eslint: {
+    //   dirs: ['pages', 'utils'], // Only run ESLint on the 'pages' and 'utils' directories during production builds (next build)
+    // },
     ignores: [
-      // "**/node_modules/",
-      "**/node_modules/**", // Default ignore for dependencies
+      "**/node_modules/", // Default ignore for dependencies
       "**/.next/**", // Ignore Next.js build output
       "package-lock.json", // Ignore npm lock file
       "*.d.ts", // Ignore TypeScript declaration files
@@ -29,7 +31,7 @@ const eslintConfig = [
     ],
     rules: {
       // Prettier integration
-      "prettier/prettier": "error", // Treat Prettier issues as errors
+      "prettier/prettier": "warn", // Treat Prettier issues as errors
 
       // Example TypeScript rules
       "@typescript-eslint/explicit-function-return-type": "warn",
