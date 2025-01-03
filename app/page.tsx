@@ -18,7 +18,7 @@ import componentsImg from "@/public/assets/components.png";
 
 export default function Home() {
   const [description, setDescription] = useState(reactDescriptions[0]);
-  const [tab, setTab] = useState("components");
+  const [tab, setTab] = useState("");
 
   useEffect(() => {
     // Generate a random description after the component is mounted
@@ -68,7 +68,9 @@ export default function Home() {
               );
             })}
           </menu>
-          <TabContent {...EXAMPLES[tab]} />
+          <div id="tab-content">
+            {tab === "" ? <p>Please Select a Topic.</p> : <TabContent {...EXAMPLES[tab]} />}
+          </div>
         </section>
         <section id="next-intro">
           <NextIntro styles={styles}/>
