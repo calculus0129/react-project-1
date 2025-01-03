@@ -42,7 +42,7 @@ function Welcome() {
   props: {
     title: "Props",
     description:
-      "Components accept arbitrary inputs called props. They are like function arguments.",
+      "Props are custom attributes that can be set on components. They are like function arguments.",
     code: `
 function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
