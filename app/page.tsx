@@ -69,14 +69,18 @@ export default function Home() {
             })}
           </menu>
           <div id="tab-content">
-            {tab === "" ? <p>Please Select a Topic.</p> : <TabContent {...EXAMPLES[tab]} />}
+            {tab === "" ? (
+              <p>Please Select a Topic.</p>
+            ) : (
+              <TabContent {...EXAMPLES[tab]} />
+            )}
           </div>
         </section>
         <section id="next-intro">
-          <NextIntro styles={styles}/>
+          <NextIntro styles={styles} />
         </section>
       </main>
-      <Footer className={styles.footer}/>
+      <Footer className={styles.footer} />
     </div>
   );
 }
