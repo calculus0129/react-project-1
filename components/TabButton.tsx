@@ -1,14 +1,16 @@
 type TabButtonProps = {
   onSelect: () => void;
+  className?: string;
 };
 
 const TabButton: React.FC<React.PropsWithChildren<TabButtonProps>> = ({
   children,
   onSelect,
+  className,
 }) => {
   return (
     <li>
-      <button className="tab-button" onClick={onSelect}>
+      <button className={className} onClick={onSelect}>
         {children}
       </button>
     </li>

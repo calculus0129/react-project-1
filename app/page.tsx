@@ -33,9 +33,13 @@ export default function Home() {
   };
 
   return (
-    <div> {/* className={styles.page} */}
+    <div>
+      {" "}
+      {/* className={styles.page} */}
       <Header desc={description} />
-      <main> {/* className={styles.main} */}
+      <main>
+        {" "}
+        {/* className={styles.main} */}
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
@@ -61,7 +65,11 @@ export default function Home() {
           <menu>
             {Object.keys(EXAMPLES).map((example: string, idx: number) => {
               return (
-                <TabButton key={idx} onSelect={handleSelect(example)}>
+                <TabButton
+                  className={example === tab ? "active" : "unactive"}
+                  key={idx}
+                  onSelect={handleSelect(example)}
+                >
                   {example}
                 </TabButton>
               );
