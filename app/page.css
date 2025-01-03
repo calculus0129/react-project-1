@@ -110,6 +110,8 @@ main h2 {
   padding: 1rem;
   border-radius: 6px;
   background-color: #2f1d43;
+  color: #ebe7ef;
+  font: Arial, sans-serif;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -119,4 +121,5 @@ main h2 {
 
 #tab-content code {
   font-size: 1rem;
+  font-family: "Courier New", Courier, monospace;
 }

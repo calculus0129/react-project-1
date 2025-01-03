@@ -9,7 +9,7 @@ import TabContent from "@/components/TabContent";
 import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import NextIntro from "@/components/NextIntro";
-// import "./page.css";
+import "./page.css";
 
 const reactDescriptions = ["Advanced", "Basic", "Core", "Fundamental"];
 
@@ -33,9 +33,9 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.page}>
+    <div> {/* className={styles.page} */}
       <Header desc={description} />
-      <main className={styles.main}>
+      <main> {/* className={styles.main} */}
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
